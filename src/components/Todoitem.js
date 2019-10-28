@@ -12,6 +12,17 @@ export class Todoitem extends Component {
   };
 
   render() {
+    //Styling for button
+    const btnStyle = {
+      background: "#ff0000",
+      color: "#fff",
+      border: "none",
+      padding: "5px 9px",
+      borderRadius: "50%",
+      cursor: "pointer",
+      float: "right"
+    };
+
     const { id, title } = this.props.todo;
     return (
       <div style={this.getStyle()}>
@@ -21,7 +32,10 @@ export class Todoitem extends Component {
             onChange={this.props.markComplete.bind(this, id)}
           />{" "}
           {title}
-          <button> x </button>
+          <button onClick={this.props.delTodo.bind(this, id)} style={btnStyle}>
+            {" "}
+            x{" "}
+          </button>
         </p>
       </div>
     );
